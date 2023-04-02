@@ -1,9 +1,11 @@
 {
   "tasksRunnerOptions": {
     "default": {
-      "runner": "@nrwl/nx-cloud",
+      "runner": "@vercel/remote-nx",
       "options": {
+        "cacheDirectory": "/tmp/nx-cache",
         "cacheableOperations": ["build", "lint", "test", "e2e"],
+
         "accessToken": "OWI3YjRlOTItZGZjYy00YzUyLTk3MGQtZGQxN2IwMDU5YTE1fHJlYWQtd3JpdGU="
       }
     }

@@ -27,7 +27,7 @@ export function Hero(props: HeroProps) {
                 industry.
               </p>
               <a
-                href="javascript:void(0)"
+                href="/"
                 className="rounded-full bg-primary py-3 px-8 text-base font-semibold text-white hover:bg-opacity-90 dark:hover:bg-opacity-90 mt-7"
               >
                 Whitepaper
