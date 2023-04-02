@@ -3,12 +3,5 @@ src = 'src'
 out = 'out'
 libs = ['lib']
 
-remappings= [
-  '@openzeppelin/=../../node_modules/@openzeppelin/',
-  'forge-std/=../../node_modules/forge-std/src/',
-  'ds-test/=../../node_modules/ds-test/src/',
-  'diamond/=../../node_modules/diamond/'
-]
-
 
 # See more config options https://github.com/foundry-rs/foundry/tree/master/config

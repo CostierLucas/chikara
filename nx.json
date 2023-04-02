@@ -12,7 +12,7 @@
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "targetDefaults": {
     "test": {
-      "inputs": ["default", "^default"]
+      "inputs": ["default", "^default", "{workspaceRoot}/jest.preset.js"]
     },
     "lint": {
       "inputs": [
@@ -34,6 +34,12 @@
         "style": "css"
       },
       "library": {
+        "style": "css",
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/next": {
+      "application": {
         "style": "css",
         "linter": "eslint"
       }
