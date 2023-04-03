@@ -30,7 +30,7 @@ export function Roadmap(props: RoadmapProps) {
               className="wow fadeInUp relative -mx-4 flex flex-wrap md:py-14 lg:py-20"
               data-wow-delay="0s"
             >
-              <span className="absolute top-0 left-2 hidden h-full w-[2px] bg-light-bg dark:bg-[#2D2C4A] md:left-1/2 md:block"></span>
+              <span className="absolute top-0 left-2 hidden h-full w-[2px] bg-light-bg dark:bg-[#3f3f3f] md:left-1/2 md:block"></span>
               <div className="w-full px-4 md:w-1/2">
                 <div className="relative z-10 mb-10 rounded-lg bg-primary py-8 px-6 dark:bg-primary md:mr-3 md:mb-0 md:text-right lg:mr-5">
                   <span className="absolute top-1/2 left-0 hidden h-4 w-4 -translate-y-1/2 rounded-full border-4 border-primary bg-white dark:border-body-color md:left-auto md:-right-9 md:block lg:-right-11"></span>

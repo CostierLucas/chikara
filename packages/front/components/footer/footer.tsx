@@ -21,7 +21,7 @@ export function Footer(props: FooterProps) {
           </a>
         </div>
         <div
-          className="wow fadeInUp border-t border-[#F3F4F4] py-7 text-center dark:border-[#2D2C4A]"
+          className="wow fadeInUp border-t border-[#3f3f3f] py-7 text-center dark:border-[#3f3f3f]"
           data-wow-delay="0s"
         >
           <p className="text-base font-medium leading-loose text-body-color-2 dark:text-body-color">
