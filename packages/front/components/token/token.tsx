@@ -64,27 +64,25 @@ export function Token(props: TokenProps) {
                 <p className="flex">
                   <span className="mr-4 h-6 w-6 rounded-full bg-primary"></span>
                   <span className="text-lg font-medium text-body-color-2 dark:text-white">
-                    70% (62,222,222,222 CHA) allocated for initial token sale.
+                    70% : Initial token sale.
                   </span>
                 </p>
                 <p className="flex">
                   <span className="mr-4 h-6 w-6 rounded-full bg-[#2347B9]"></span>
                   <span className="text-lg font-medium text-body-color-2 dark:text-white">
-                    15% (13,333,333,333 CHA) allocated for ecosystem
-                    development, partnerships, and marketing.
+                    15% : Ecosystem development, partnerships, and marketing.
                   </span>
                 </p>
                 <p className="flex">
                   <span className="mr-4 h-6 w-6 rounded-full bg-[#FFCE56]"></span>
                   <span className="text-lg font-medium text-body-color-2 dark:text-white">
-                    10% (8,888,888,888 CHA) allocated for liquidity provision
-                    and treasury.
+                    10% : Liquidity provision and treasury.
                   </span>
                 </p>
                 <p className="flex">
                   <span className="mr-4 h-6 w-6 rounded-full bg-[#4BC0C0]"></span>
                   <span className="text-lg font-medium text-body-color-2 dark:text-white">
-                    5% (4,444,444,444 CHA) allocated for team and advisors
+                    5% : Team and advisors
                   </span>
                 </p>
               </div>
