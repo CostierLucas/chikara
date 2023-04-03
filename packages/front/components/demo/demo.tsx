@@ -5,7 +5,7 @@ export interface DemoProps {}
 
 export function Demo(props: DemoProps) {
   return (
-    <section id="download" className="py-24">
+    <section id="demo" className="py-24">
       <div className="container">
         <div className="-mx-4 flex flex-wrap items-center">
           <div className="w-full px-4 lg:w-1/2">

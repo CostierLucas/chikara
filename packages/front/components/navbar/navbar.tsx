@@ -68,22 +68,28 @@ export function Navbar(props: NavbarProps) {
                       Roadmap
                     </a>
                   </li>
-
                   <li>
                     <a
-                      href="#roadmap"
-                      className="scroll-menu flex py-2 text-lg font-semibold text-body-color-2 hover:text-primary dark:text-body-color dark:hover:text-white lg:ml-7 lg:inline-flex lg:py-5 xl:ml-10 2xl:ml-12"
-                    >
-                      FAQ
-                    </a>
-                  </li>
-
-                  <li>
-                    <a
-                      href="#roadmap"
+                      href="#token"
                       className="scroll-menu flex py-2 text-lg font-semibold text-body-color-2 hover:text-primary dark:text-body-color dark:hover:text-white lg:ml-7 lg:inline-flex lg:py-5 xl:ml-10 2xl:ml-12"
                     >
                       Token
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#demo"
+                      className="scroll-menu flex py-2 text-lg font-semibold text-body-color-2 hover:text-primary dark:text-body-color dark:hover:text-white lg:ml-7 lg:inline-flex lg:py-5 xl:ml-10 2xl:ml-12"
+                    >
+                      P2E
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#faq"
+                      className="scroll-menu flex py-2 text-lg font-semibold text-body-color-2 hover:text-primary dark:text-body-color dark:hover:text-white lg:ml-7 lg:inline-flex lg:py-5 xl:ml-10 2xl:ml-12"
+                    >
+                      FAQ
                     </a>
                   </li>
                 </ul>

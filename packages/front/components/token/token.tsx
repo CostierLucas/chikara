@@ -20,7 +20,7 @@ export function Token(props: TokenProps) {
   };
 
   return (
-    <section className="relative z-10">
+    <section id="token" className="relative z-10">
       <div className="container">
         <div className="rounded-lg bg-light-bg py-12 px-8 dark:bg-[#3f3f3f] sm:py-16 sm:px-14 lg:px-8 xl:px-14">
           <div className="-mx-4 flex flex-wrap items-center">
