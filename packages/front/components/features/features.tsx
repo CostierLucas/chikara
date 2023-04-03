@@ -18,8 +18,10 @@ export function Features(props: FeaturesProps) {
             Best Features
           </h2>
           <p className="text-lg font-medium text-body-color-2 dark:text-body-color">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed
-            congue arcu, In et dignissim quam condimentum vel.
+            CHA is a community-focused token with a play-to-earn game, presale,
+            and limited supply. With transparent tokenomics and a secure
+            platform, you can trust CHA to deliver value to its community while
+            earning rewards and shaping the project's future.
           </p>
         </div>
 
@@ -46,12 +48,12 @@ export function Features(props: FeaturesProps) {
 
               <div>
                 <h3 className="mb-3 text-xl font-bold text-black dark:text-white sm:text-3xl lg:text-xl xl:text-3xl">
-                  Safe & Secure
+                  Play-to-Earn Game
                 </h3>
 
                 <p className="text-base font-medium text-body-color-2 dark:text-body-color sm:text-lg lg:text-base xl:text-lg">
-                  Lorem ipsum dolor sit amet consectetur elit, sed do eiusmod
-                  tempor labore labore labore et dolor .
+                  Earn CHA by completing challenges and competing in multiplayer
+                  matches.
                 </p>
               </div>
             </div>
@@ -78,12 +80,12 @@ export function Features(props: FeaturesProps) {
 
               <div>
                 <h3 className="mb-3 text-xl font-bold text-black dark:text-white sm:text-3xl lg:text-xl xl:text-3xl">
-                  Early Bonus
+                  Presale
                 </h3>
 
                 <p className="text-base font-medium text-body-color-2 dark:text-body-color sm:text-lg lg:text-base xl:text-lg">
-                  Lorem ipsum dolor sit amet consectetur elit, sed do eiusmod
-                  tempor labore labore labore et dolor .
+                  Get early access to CHA at a discounted price during the
+                  presale.
                 </p>
               </div>
             </div>
@@ -115,12 +117,11 @@ export function Features(props: FeaturesProps) {
 
               <div>
                 <h3 className="mb-3 text-xl font-bold text-black dark:text-white sm:text-3xl lg:text-xl xl:text-3xl">
-                  Universal Access
+                  Governance Platform
                 </h3>
 
                 <p className="text-base font-medium text-body-color-2 dark:text-body-color sm:text-lg lg:text-base xl:text-lg">
-                  Lorem ipsum dolor sit amet consectetur elit, sed do eiusmod
-                  tempor labore labore labore et dolor .
+                  Participate in key decisions by holding and voting with CHA.
                 </p>
               </div>
             </div>
@@ -147,12 +148,12 @@ export function Features(props: FeaturesProps) {
 
               <div>
                 <h3 className="mb-3 text-xl font-bold text-black dark:text-white sm:text-3xl lg:text-xl xl:text-3xl">
-                  Secure Storage
+                  Secure and Reliable
                 </h3>
 
                 <p className="text-base font-medium text-body-color-2 dark:text-body-color sm:text-lg lg:text-base xl:text-lg">
-                  Lorem ipsum dolor sit amet consectetur elit, sed do eiusmod
-                  tempor labore labore labore et dolor .
+                  CHA is built on a secure and reliable blockchain platform,
+                  ensuring that your investments are safe and protected.
                 </p>
               </div>
             </div>
@@ -179,12 +180,12 @@ export function Features(props: FeaturesProps) {
 
               <div>
                 <h3 className="mb-3 text-xl font-bold text-black dark:text-white sm:text-3xl lg:text-xl xl:text-3xl">
-                  Low Cost
+                  Transparent Tokenomics
                 </h3>
 
                 <p className="text-base font-medium text-body-color-2 dark:text-body-color sm:text-lg lg:text-base xl:text-lg">
-                  Lorem ipsum dolor sit amet consectetur elit, sed do eiusmod
-                  tempor labore labore labore et dolor .
+                  CHA's tokenomics are clear and focused on delivering value to
+                  the community.
                 </p>
               </div>
             </div>
@@ -211,12 +212,12 @@ export function Features(props: FeaturesProps) {
 
               <div>
                 <h3 className="mb-3 text-xl font-bold text-black dark:text-white sm:text-3xl lg:text-xl xl:text-3xl">
-                  Several Profit
+                  Community-Driven
                 </h3>
 
                 <p className="text-base font-medium text-body-color-2 dark:text-body-color sm:text-lg lg:text-base xl:text-lg">
-                  Lorem ipsum dolor sit amet consectetur elit, sed do eiusmod
-                  tempor labore labore labore et dolor .
+                  CHA is built by and for the community, with regular updates
+                  and input from users.
                 </p>
               </div>
             </div>
