@@ -11,9 +11,19 @@ export function Token(props: TokenProps) {
   const data = {
     datasets: [
       {
-        data: [88, 12],
-        backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)'],
-        borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)'],
+        data: [70, 15, 10, 5],
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+        ],
+        borderColor: [
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+        ],
         borderWidth: 1,
       },
     ],
@@ -54,13 +64,27 @@ export function Token(props: TokenProps) {
                 <p className="flex">
                   <span className="mr-4 h-6 w-6 rounded-full bg-primary"></span>
                   <span className="text-lg font-medium text-body-color-2 dark:text-white">
-                    88% Presale - Community
+                    70% (62,222,222,222 CHA) allocated for initial token sale.
                   </span>
                 </p>
                 <p className="flex">
                   <span className="mr-4 h-6 w-6 rounded-full bg-[#2347B9]"></span>
                   <span className="text-lg font-medium text-body-color-2 dark:text-white">
-                    12% Liquidity - Marketing
+                    15% (13,333,333,333 CHA) allocated for ecosystem
+                    development, partnerships, and marketing.
+                  </span>
+                </p>
+                <p className="flex">
+                  <span className="mr-4 h-6 w-6 rounded-full bg-[#FFCE56]"></span>
+                  <span className="text-lg font-medium text-body-color-2 dark:text-white">
+                    10% (8,888,888,888 CHA) allocated for liquidity provision
+                    and treasury.
+                  </span>
+                </p>
+                <p className="flex">
+                  <span className="mr-4 h-6 w-6 rounded-full bg-[#4BC0C0]"></span>
+                  <span className="text-lg font-medium text-body-color-2 dark:text-white">
+                    5% (4,444,444,444 CHA) allocated for team and advisors
                   </span>
                 </p>
               </div>
