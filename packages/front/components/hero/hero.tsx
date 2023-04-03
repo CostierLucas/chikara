@@ -11,14 +11,14 @@ export function Hero(props: HeroProps) {
           <div className="w-full px-4">
             <div className="mx-auto max-w-[720px] text-center">
               <div className="flex items-center gap-5 justify-center">
-                <h1 className="mb-4 !text-9xl font-bold font-pixel leading-tight text-black dark:text-white md:text-[45px]">
+                <h1 className="mb-4 !text-9xl font-bold font-pixel text-white leading-tight text-black dark:text-white md:text-[45px]">
                   CHIKARA
                 </h1>
                 <div className="w-24">
                   <img src="/body.png" alt="" className="mx-auto mb-4" />
                 </div>
               </div>
-              <p className="mx-auto mb-10 max-w-[620px] text-2xl font-pixel font-medium text-body-color-2 dark:text-white">
+              <p className="mx-auto mb-10 text-white max-w-[620px] text-2xl font-pixel font-normal dark:text-white">
                 Chikara is a cryptocurrency project that offers play-to-earn
                 games. It combines blockchain technology with gaming to create a
                 transparent and secure environment where players can earn

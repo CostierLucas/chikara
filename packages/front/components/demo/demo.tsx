@@ -16,7 +16,7 @@ export function Demo(props: DemoProps) {
               <span className="mb-3 text-lg font-bold uppercase text-primary sm:text-xl">
                 P2E
               </span>
-              <h2 className="mb-3 !text-6xl font-bold font-pixel leading-tight text-black dark:text-white md:text-[45px]">
+              <h2 className="mb-3 !text-6xl font-bold font-pixel leading-tight text-white dark:text-white md:text-[45px]">
                 Be ready for the fight
               </h2>
               <p className="mb-10 text-lg font-medium text-body-color-2 dark:text-body-color">
@@ -39,7 +39,7 @@ export function Demo(props: DemoProps) {
               <img
                 src="/game.jpg"
                 alt="app image"
-                className="mx-auto hidden dark:block text-center"
+                className="mx-auto text-center"
               />
               <span
                 className="absolute right-0 bottom-0 w-[320px] h-[320px] rounded-full -z-10"

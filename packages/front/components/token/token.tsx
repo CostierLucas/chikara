@@ -32,7 +32,7 @@ export function Token(props: TokenProps) {
   return (
     <section id="token" className="relative z-10">
       <div className="container">
-        <div className="rounded-lg bg-light-bg py-12 px-8 dark:bg-[#3f3f3f] sm:py-16 sm:px-14 lg:px-8 xl:px-14">
+        <div className="rounded-lg bg-[#3f3f3f] py-12 px-8 dark:bg-[#3f3f3f] sm:py-16 sm:px-14 lg:px-8 xl:px-14">
           <div className="-mx-4 flex flex-wrap items-center">
             <div className="w-full px-4 lg:w-1/2">
               <div
@@ -47,10 +47,10 @@ export function Token(props: TokenProps) {
                 <span className="mb-3 text-lg font-bold uppercase text-primary sm:text-xl">
                   TOKEN
                 </span>
-                <h2 className="mb-3 font-pixel !text-6xl font-bold leading-tight text-black dark:text-white md:text-[45px]">
+                <h2 className="mb-3 font-pixel !text-6xl font-bold leading-tight text-white dark:text-white md:text-[45px]">
                   Token Sale
                 </h2>
-                <p className="text-lg font-normal text-body-color-2 dark:text-white">
+                <p className="text-lg font-normal text-white dark:text-white">
                   At Chikara, our tokenomics are designed with our customers in
                   mind, with a focus on providing a transparent and fair
                   experience for all users. With a fixed supply of{' '}
@@ -63,25 +63,25 @@ export function Token(props: TokenProps) {
               <div className="wow fadeInUp space-y-4" data-wow-delay="0s">
                 <p className="flex">
                   <span className="mr-4 h-6 w-6 rounded-full bg-primary"></span>
-                  <span className="text-lg font-medium text-body-color-2 dark:text-white">
+                  <span className="text-lg font-medium text-white dark:text-white">
                     70% : Initial token sale.
                   </span>
                 </p>
                 <p className="flex">
                   <span className="mr-4 h-6 w-6 rounded-full bg-[#2347B9]"></span>
-                  <span className="text-lg font-medium text-body-color-2 dark:text-white">
+                  <span className="text-lg font-medium text-white dark:text-white">
                     15% : Ecosystem development, partnerships, and marketing.
                   </span>
                 </p>
                 <p className="flex">
                   <span className="mr-4 h-6 w-6 rounded-full bg-[#FFCE56]"></span>
-                  <span className="text-lg font-medium text-body-color-2 dark:text-white">
+                  <span className="text-lg font-medium text-white dark:text-white">
                     10% : Liquidity provision and treasury.
                   </span>
                 </p>
                 <p className="flex">
                   <span className="mr-4 h-6 w-6 rounded-full bg-[#4BC0C0]"></span>
-                  <span className="text-lg font-medium text-body-color-2 dark:text-white">
+                  <span className="text-lg font-medium text-white dark:text-white">
                     5% : Team and advisors
                   </span>
                 </p>

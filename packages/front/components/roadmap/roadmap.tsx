@@ -14,7 +14,7 @@ export function Roadmap(props: RoadmapProps) {
           <span className="mb-3 text-lg font-bold uppercase text-primary sm:text-xl">
             ROADMAP
           </span>
-          <h2 className="mb-3 !text-6xl font-bold font-pixel leading-tight text-black dark:text-white md:text-[45px]">
+          <h2 className="mb-3 !text-6xl font-bold font-pixel leading-tight text-white dark:text-white md:text-[45px]">
             The Timeline
           </h2>
           <p className="text-lg font-medium text-body-color-2 dark:text-body-color">
@@ -30,15 +30,15 @@ export function Roadmap(props: RoadmapProps) {
               className="wow fadeInUp relative -mx-4 flex flex-wrap md:py-14 lg:py-20"
               data-wow-delay="0s"
             >
-              <span className="absolute top-0 left-2 hidden h-full w-[2px] bg-light-bg dark:bg-[#3f3f3f] md:left-1/2 md:block"></span>
+              <span className="absolute top-0 left-2 hidden h-full w-[2px] bg-[#3f3f3f] dark:bg-[#3f3f3f] md:left-1/2 md:block"></span>
               <div className="w-full px-4 md:w-1/2">
                 <div className="relative z-10 mb-10 rounded-lg bg-primary py-8 px-6 dark:bg-primary md:mr-3 md:mb-0 md:text-right lg:mr-5">
-                  <span className="absolute top-1/2 left-0 hidden h-4 w-4 -translate-y-1/2 rounded-full border-4 border-primary bg-white dark:border-body-color md:left-auto md:-right-9 md:block lg:-right-11"></span>
-                  <span className="absolute -right-1 top-1/2 hidden h-3 w-3 -translate-y-1/2 rotate-45 bg-light-bg dark:bg-primary md:block"></span>
-                  <h3 className="mb-3 text-xl font-bold text-black dark:text-white">
+                  <span className="absolute top-1/2 left-0 hidden h-4 w-4 -translate-y-1/2 rounded-full border-4 border-body-color bg-white dark:border-body-color md:left-auto md:-right-9 md:block lg:-right-11"></span>
+                  <span className="absolute -right-1 top-1/2 hidden h-3 w-3 -translate-y-1/2 rotate-45 bg-primary dark:bg-primary md:block"></span>
+                  <h3 className="mb-3 text-xl font-bold text-white dark:text-white">
                     Q2 - 2023
                   </h3>
-                  <p className="mb-5 text-base text-body-color-2 dark:text-white">
+                  <p className="mb-5 text-base text-white dark:text-white">
                     Chikara successfully completed their initial website launch
                     and continued to build momentum through a logo design
                     contest, tokenomics finalization, presale launch, community
@@ -49,13 +49,13 @@ export function Roadmap(props: RoadmapProps) {
               <div className="w-full px-4 md:w-1/2"></div>
               <div className="w-full px-4 md:w-1/2"></div>
               <div className="w-full px-4 md:w-1/2">
-                <div className="relative z-10 mb-10 rounded-lg bg-light-bg py-8 px-6 dark:bg-primary md:ml-3 md:mb-0 lg:ml-5">
-                  <span className="absolute top-1/2 left-0 hidden h-4 w-4 -translate-y-1/2 rounded-full border-4 border-primary bg-white dark:border-body-color md:right-auto md:-left-9 md:block lg:-left-11"></span>
-                  <span className="absolute -left-1 top-1/2 hidden h-3 w-3 -translate-y-1/2 rotate-45 bg-light-bg dark:bg-primary md:block"></span>
-                  <h3 className="mb-3 text-xl font-bold text-black dark:text-white">
+                <div className="relative z-10 mb-10 rounded-lg bg-primary py-8 px-6 dark:bg-primary md:ml-3 md:mb-0 lg:ml-5">
+                  <span className="absolute top-1/2 left-0 hidden h-4 w-4 -translate-y-1/2 rounded-full border-4 border-body-color bg-white dark:border-body-color md:right-auto md:-left-9 md:block lg:-left-11"></span>
+                  <span className="absolute -left-1 top-1/2 hidden h-3 w-3 -translate-y-1/2 rotate-45 bg-primary dark:bg-primary md:block"></span>
+                  <h3 className="mb-3 text-xl font-bold text-white dark:text-white">
                     Q3 - 2023
                   </h3>
-                  <p className="mb-5 text-base text-body-color-2 dark:text-white">
+                  <p className="mb-5 text-base text-white dark:text-white">
                     After the successful launch of their token, Chikara
                     continued to innovate with the release of 8,888 non-fungible
                     tokens, listings on DEX/CEX exchanges, and the launch of
@@ -66,13 +66,13 @@ export function Roadmap(props: RoadmapProps) {
                 </div>
               </div>
               <div className="w-full px-4 md:w-1/2">
-                <div className="relative z-10 mb-10 rounded-lg bg-light-bg py-8 px-6 dark:bg-primary md:mr-3 md:mb-0 md:text-right lg:mr-5">
-                  <span className="absolute top-1/2 left-0 hidden h-4 w-4 -translate-y-1/2 rounded-full border-4 border-primary bg-white dark:border-body-color md:left-auto md:-right-9 md:block lg:-right-11"></span>
-                  <span className="absolute -right-1 top-1/2 hidden h-3 w-3 -translate-y-1/2 rotate-45 bg-light-bg dark:bg-primary md:block"></span>
-                  <h3 className="mb-3 text-xl font-bold text-black dark:text-white">
+                <div className="relative z-10 mb-10 rounded-lg bg-primary py-8 px-6 dark:bg-primary md:mr-3 md:mb-0 md:text-right lg:mr-5">
+                  <span className="absolute top-1/2 left-0 hidden h-4 w-4 -translate-y-1/2 rounded-full border-4 border-body-color bg-white dark:border-body-color md:left-auto md:-right-9 md:block lg:-right-11"></span>
+                  <span className="absolute -right-1 top-1/2 hidden h-3 w-3 -translate-y-1/2 rotate-45 bg-primary dark:bg-primary md:block"></span>
+                  <h3 className="mb-3 text-xl font-bold text-white dark:text-white">
                     Q4 - 2023
                   </h3>
-                  <p className="mb-5 text-base text-body-color-2 dark:text-white">
+                  <p className="mb-5 text-base text-white dark:text-white">
                     Chikara continued to expand their reach with a full-scale
                     marketing campaign focused on Web3, and a highly anticipated
                     release of their 8-level play-to-earn game. Alongside the
@@ -85,13 +85,13 @@ export function Roadmap(props: RoadmapProps) {
               <div className="w-full px-4 md:w-1/2"></div>
               <div className="w-full px-4 md:w-1/2"></div>
               <div className="w-full px-4 md:w-1/2">
-                <div className="relative z-10 mb-10 rounded-lg bg-light-bg py-8 px-6 dark:bg-primary md:ml-3 md:mb-0 lg:ml-5">
-                  <span className="absolute top-1/2 left-0 hidden h-4 w-4 -translate-y-1/2 rounded-full border-4 border-primary bg-white dark:border-body-color md:right-auto md:-left-9 md:block lg:-left-11"></span>
-                  <span className="absolute -left-1 top-1/2 hidden h-3 w-3 -translate-y-1/2 rotate-45 bg-light-bg dark:bg-primary md:block"></span>
-                  <h3 className="mb-3 text-xl font-bold text-black dark:text-white">
+                <div className="relative z-10 mb-10 rounded-lg bg-primary py-8 px-6 dark:bg-primary md:ml-3 md:mb-0 lg:ml-5">
+                  <span className="absolute top-1/2 left-0 hidden h-4 w-4 -translate-y-1/2 rounded-full border-4 border-body-color bg-white dark:border-body-color md:right-auto md:-left-9 md:block lg:-left-11"></span>
+                  <span className="absolute -left-1 top-1/2 hidden h-3 w-3 -translate-y-1/2 rotate-45 bg-primary dark:bg-primary md:block"></span>
+                  <h3 className="mb-3 text-xl font-bold text-white text-black dark:text-white">
                     Q1 - 2024
                   </h3>
-                  <p className="mb-5 text-base text-body-color-2 dark:text-white">
+                  <p className="mb-5 text-base text-white dark:text-white">
                     More to come...
                   </p>
                 </div>

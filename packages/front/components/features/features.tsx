@@ -14,7 +14,7 @@ export function Features(props: FeaturesProps) {
           <span className="mb-3 text-lg font-bold uppercase text-primary sm:text-xl">
             CRYPTO FEATURE
           </span>
-          <h2 className="mb-3 !text-7xl font-bold font-pixel leading-tight text-black dark:text-white md:text-[45px]">
+          <h2 className="mb-3 !text-7xl font-bold font-pixel leading-tight text-white dark:text-white md:text-[45px]">
             Best Features
           </h2>
           <p className="text-lg font-medium text-body-color-2 dark:text-body-color">
@@ -47,7 +47,7 @@ export function Features(props: FeaturesProps) {
               </div>
 
               <div>
-                <h3 className="mb-3 text-xl font-bold text-black dark:text-white sm:text-3xl lg:text-xl xl:text-3xl">
+                <h3 className="mb-3 text-xl font-bold text-white dark:text-white sm:text-3xl lg:text-xl xl:text-3xl">
                   Play-to-Earn Game
                 </h3>
 
@@ -79,7 +79,7 @@ export function Features(props: FeaturesProps) {
               </div>
 
               <div>
-                <h3 className="mb-3 text-xl font-bold text-black dark:text-white sm:text-3xl lg:text-xl xl:text-3xl">
+                <h3 className="mb-3 text-xl font-bold text-white dark:text-white sm:text-3xl lg:text-xl xl:text-3xl">
                   Presale
                 </h3>
 
@@ -116,7 +116,7 @@ export function Features(props: FeaturesProps) {
               </div>
 
               <div>
-                <h3 className="mb-3 text-xl font-bold text-black dark:text-white sm:text-3xl lg:text-xl xl:text-3xl">
+                <h3 className="mb-3 text-xl font-bold text-white dark:text-white sm:text-3xl lg:text-xl xl:text-3xl">
                   Governance Platform
                 </h3>
 
@@ -147,7 +147,7 @@ export function Features(props: FeaturesProps) {
               </div>
 
               <div>
-                <h3 className="mb-3 text-xl font-bold text-black dark:text-white sm:text-3xl lg:text-xl xl:text-3xl">
+                <h3 className="mb-3 text-xl font-bold text-white dark:text-white sm:text-3xl lg:text-xl xl:text-3xl">
                   Secure and Reliable
                 </h3>
 
@@ -179,7 +179,7 @@ export function Features(props: FeaturesProps) {
               </div>
 
               <div>
-                <h3 className="mb-3 text-xl font-bold text-black dark:text-white sm:text-3xl lg:text-xl xl:text-3xl">
+                <h3 className="mb-3 text-xl font-bold text-white dark:text-white sm:text-3xl lg:text-xl xl:text-3xl">
                   Transparent Tokenomics
                 </h3>
 
@@ -211,7 +211,7 @@ export function Features(props: FeaturesProps) {
               </div>
 
               <div>
-                <h3 className="mb-3 text-xl font-bold text-black dark:text-white sm:text-3xl lg:text-xl xl:text-3xl">
+                <h3 className="mb-3 text-xl font-bold text-white dark:text-white sm:text-3xl lg:text-xl xl:text-3xl">
                   Community-Driven
                 </h3>
 
