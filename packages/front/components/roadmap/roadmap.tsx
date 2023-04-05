@@ -42,7 +42,7 @@ export function Roadmap(props: RoadmapProps) {
                     Chikara successfully completed their initial website launch
                     and continued to build momentum through a logo design
                     contest, tokenomics finalization, presale launch, community
-                    growth, and strategic marketing efforts.
+                    growth, and strategic marketing efforts
                   </p>
                 </div>
               </div>
