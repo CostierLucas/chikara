@@ -26,12 +26,20 @@ export function Hero(props: HeroProps) {
                 earn real value for gaming, Chikara is transforming the gaming
                 industry.
               </p>
-              <a
-                href="/"
-                className="rounded-full bg-primary py-3 px-8 text-base font-semibold text-white hover:bg-opacity-90 dark:hover:bg-opacity-90 mt-7"
-              >
-                Whitepaper
-              </a>
+              <div className="flex gap-5 justify-center">
+                <a
+                  href="/"
+                  className="rounded-full bg-primary py-3 px-8 text-base font-semibold text-white hover:bg-opacity-90 dark:hover:bg-opacity-90 mt-7"
+                >
+                  Whitepaper
+                </a>
+                <a
+                  href="/"
+                  className="rounded-full bg-primary py-3 px-8 text-base font-semibold text-white hover:bg-opacity-90 dark:hover:bg-opacity-90 mt-7"
+                >
+                  Audit soon
+                </a>
+              </div>
             </div>
           </div>
         </div>
