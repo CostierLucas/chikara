@@ -25,7 +25,7 @@ export function Features(props: FeaturesProps) {
           </p>
         </div>
 
-        <div className="-mx-4 flex flex-wrap">
+        <div className="-mx-4 flex flex-wrap justify-center">
           <div className="w-full px-4 md:w-1/2 lg:w-1/3">
             <div
               className="wow fadeInUp mx-auto mb-14 max-w-[370px] text-center"
@@ -86,42 +86,6 @@ export function Features(props: FeaturesProps) {
                 <p className="text-base font-medium text-body-color-2 dark:text-body-color sm:text-lg lg:text-base xl:text-lg">
                   Get early access to CHA at a discounted price during the
                   presale.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="w-full px-4 md:w-1/2 lg:w-1/3">
-            <div
-              className="wow fadeInUp mx-auto mb-14 max-w-[370px] text-center"
-              data-wow-delay="0s"
-            >
-              <div className="mx-auto mb-7 flex h-20 w-20 items-center justify-center rounded-full bg-primary text-white">
-                <svg
-                  width="40"
-                  height="40"
-                  viewBox="0 0 40 40"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M20 3.33325L10.8334 18.3333H29.1667L20 3.33325Z"
-                    fill="white"
-                  />
-                  <path
-                    d="M29.1666 36.6667C33.3088 36.6667 36.6666 33.3089 36.6666 29.1667C36.6666 25.0246 33.3088 21.6667 29.1666 21.6667C25.0245 21.6667 21.6666 25.0246 21.6666 29.1667C21.6666 33.3089 25.0245 36.6667 29.1666 36.6667Z"
-                    fill="white"
-                  />
-                  <path d="M5 22.5H18.3333V35.8333H5V22.5Z" fill="white" />
-                </svg>
-              </div>
-
-              <div>
-                <h3 className="mb-3 text-xl font-bold text-white dark:text-white sm:text-3xl lg:text-xl xl:text-3xl">
-                  Governance Platform
-                </h3>
-
-                <p className="text-base font-medium text-body-color-2 dark:text-body-color sm:text-lg lg:text-base xl:text-lg">
-                  Participate in key decisions by holding and voting with CHA.
                 </p>
               </div>
             </div>
