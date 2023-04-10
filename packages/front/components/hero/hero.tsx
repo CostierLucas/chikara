@@ -28,7 +28,8 @@ export function Hero(props: HeroProps) {
               </p>
               <div className="flex gap-5 justify-center">
                 <a
-                  href="/"
+                  href="/whitepaper.pdf"
+                  target="_blank"
                   className="rounded-full bg-primary py-3 px-8 text-base font-semibold text-white hover:bg-opacity-90 dark:hover:bg-opacity-90 mt-7"
                 >
                   Whitepaper

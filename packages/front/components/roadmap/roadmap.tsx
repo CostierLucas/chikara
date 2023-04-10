@@ -73,12 +73,9 @@ export function Roadmap(props: RoadmapProps) {
                     Q4 - 2023
                   </h3>
                   <p className="mb-5 text-base text-white dark:text-white">
-                    Chikara continued to expand their reach with a full-scale
-                    marketing campaign focused on Web3, and a highly anticipated
-                    release of their 8-level play-to-earn game. Alongside the
-                    game launch, they also released a full-featured CHIKARA
-                    website and expanded their DEX/CEX listings in step 2 of
-                    their growth strategy.
+                    Experience the ultimate play-to-earn gaming experience with
+                    CHIKARA's P2E levels game release, P2E Multi-slayer mode,
+                    and P2E income, all available on our full CHIKARA website.
                   </p>
                 </div>
               </div>
