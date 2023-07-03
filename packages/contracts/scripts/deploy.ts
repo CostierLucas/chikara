@@ -16,7 +16,7 @@ async function main() {
     .createPresale(
       blockTimeStamp,
       endDateTime,
-      '105000000000000',
+      '10500000000000000',
       10000000,
       '1000000000000000000',
       1,
