@@ -45,8 +45,8 @@ export function Demo(props: DemoProps) {
                 className="absolute right-0 bottom-0 w-[320px] h-[320px] rounded-full -z-10"
                 style={{
                   background:
-                    'background: linear-gradient( 180deg, rgba(55, 109, 249, 0) 0%, rgba(255, 96, 166, 0.32) 100% );',
-                  filter: 'blur(100px);',
+                    'background: linear-gradient( 180deg, rgba(55, 109, 249, 0) 0%, rgba(255, 96, 166, 0.32) 100% )',
+                  filter: 'blur(100px)',
                 }}
               ></span>
             </div>

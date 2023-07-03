@@ -1,3 +1,4 @@
+import Presale from '../presale/presale';
 import styles from './hero.module.css';
 
 /* eslint-disable-next-line */
@@ -6,7 +7,7 @@ export interface HeroProps {}
 export function Hero(props: HeroProps) {
   return (
     <section id="home" className="relative z-10 pt-48 pb-28">
-      <div className="container">
+      <div className="container flex space-between items-center gap-5">
         <div className="-mx-4 flex flex-wrap">
           <div className="w-full px-4">
             <div className="mx-auto max-w-[720px] text-center">
@@ -43,14 +44,16 @@ export function Hero(props: HeroProps) {
               </div>
             </div>
           </div>
+          d p
         </div>
+        <Presale />
       </div>
 
       <div
         className="absolute top-0 left-0 -z-10 h-full w-full opacity-20"
         style={{
           backgroundImage:
-            'linear-gradient( 180deg, #ff3e5d 0%, rgba(62, 125, 255, 0) 100%);',
+            'linear-gradient( 180deg, #ff3e5d 0%, rgba(62, 125, 255, 0) 100%)',
         }}
       ></div>
     </section>

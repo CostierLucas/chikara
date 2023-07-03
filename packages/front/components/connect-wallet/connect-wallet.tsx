@@ -1,4 +1,3 @@
-import styles from './connect-wallet.module.css';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 
 /* eslint-disable-next-line */

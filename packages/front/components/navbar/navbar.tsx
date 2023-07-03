@@ -8,7 +8,6 @@ export interface NavbarProps {}
 export function Navbar(props: NavbarProps) {
   const [scrolledFromTop, setScrolledFromTop] = useState<boolean>(false);
   const [navbarOpen, setNavbarOpen] = useState<boolean>(false);
-  const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
 
   return (
     <header

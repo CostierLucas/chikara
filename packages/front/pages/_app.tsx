@@ -4,30 +4,45 @@ import '@rainbow-me/rainbowkit/styles.css';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 import { getDefaultWallets, RainbowKitProvider } from '@rainbow-me/rainbowkit';
-import { configureChains, createClient, WagmiConfig } from 'wagmi';
-import { mainnet, polygon, optimism, arbitrum } from 'wagmi/chains';
+import { configureChains, createConfig, WagmiConfig } from 'wagmi';
+import { goerli, hardhat } from 'wagmi/chains';
 import { alchemyProvider } from 'wagmi/providers/alchemy';
 import { publicProvider } from 'wagmi/providers/public';
+import { useEffect, useState } from 'react';
 
-const { chains, provider } = configureChains(
-  [mainnet, polygon, optimism, arbitrum],
-  [alchemyProvider({ apiKey: process.env.ALCHEMY_ID }), publicProvider()]
+const { chains, publicClient } = configureChains(
+  [hardhat],
+  [
+    alchemyProvider({ apiKey: 'Gfs_EBL4dk84SzNvVXCCu0TvrntC-fwG' }),
+    publicProvider(),
+  ]
 );
 
 const { connectors } = getDefaultWallets({
   appName: 'My RainbowKit App',
+  projectId: '5e65385329156b9a2023c880beff680e',
   chains,
 });
 
-const wagmiClient = createClient({
+const wagmiConfig = createConfig({
   autoConnect: true,
   connectors,
-  provider,
+  publicClient,
 });
 
 function CustomApp({ Component, pageProps }: AppProps) {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) {
+    return null;
+  }
+
   return (
-    <WagmiConfig client={wagmiClient}>
+    <WagmiConfig config={wagmiConfig}>
       <RainbowKitProvider chains={chains}>
         <>
           <Head>
@@ -35,7 +50,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
           </Head>
 
           <main className="app">
-            <Component {...pageProps} />
+            {isMounted && <Component {...pageProps} />}
           </main>
         </>
       </RainbowKitProvider>
