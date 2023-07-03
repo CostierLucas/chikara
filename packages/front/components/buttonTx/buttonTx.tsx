@@ -4,7 +4,7 @@ import {
   usePrepareContractWrite,
 } from 'wagmi';
 import { useWaitForTransaction } from 'wagmi';
-import contractAbi from '../../../contracts/artifacts/contracts/ChikaraPresale.sol/TokenPresale.json';
+import contractAbi from '../../abi/TokenPresale.json';
 import { chikaraAddress, presaleId } from 'packages/front/global';
 import { ClipLoader } from 'react-spinners';
 

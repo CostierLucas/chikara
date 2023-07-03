@@ -8,7 +8,6 @@ async function main() {
   ]);
   const blockTimeStamp = (await ethers.provider.getBlock('latest')).timestamp;
   const endDateTime = blockTimeStamp + 60 * 60 * 24 * 7;
-  const vestingStart = blockTimeStamp + 60 * 60 * 24 * 7;
 
   await instance.deployed();
 
@@ -17,22 +16,14 @@ async function main() {
     .createPresale(
       blockTimeStamp,
       endDateTime,
-      '18005041411595246',
+      '105000000000000',
       10000000,
       '1000000000000000000',
-      vestingStart,
-      0,
-      0,
       1,
       1
     );
 
-  console.log(await chikaraPresale.attach(instance.address).getLatestPrice());
-
-  // await chikaraPresale.attach(instance.address).buyWithEth(1, 1);
-
   console.log('ChikaraPresale deployed to:', instance.address);
-  console.log(await ethers.provider.getBlock('latest'));
 }
 
 // We recommend this pattern to be able to use async/await everywhere

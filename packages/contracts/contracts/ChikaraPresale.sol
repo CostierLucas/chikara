@@ -11,10 +11,11 @@ import "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
 
 
 contract TokenPresale is Initializable, ReentrancyGuardUpgradeable, OwnableUpgradeable {
-    uint256 public presaleId;
-    uint256 public BASE_MULTIPLIER;
-    uint256 public MONTH;
- 
+    uint256 public presaleId; 
+    uint256 public BASE_MULTIPLIER; 
+    uint256 public MONTH; 
+    bool public isClaimAllowed; 
+
     struct Presale {
         address saleToken;
         uint256 startTime;
@@ -23,18 +24,8 @@ contract TokenPresale is Initializable, ReentrancyGuardUpgradeable, OwnableUpgra
         uint256 tokensToSell;
         uint256 baseDecimals;
         uint256 inSale;
-        uint256 vestingStartTime;
-        uint256 vestingCliff;
-        uint256 vestingPeriod;
         uint256 enableBuyWithEth;
         uint256 enableBuyWithUsdt;
-    }
-
-    struct Vesting {
-        uint256 totalAmount;
-        uint256 claimedAmount;
-        uint256 claimStart;
-        uint256 claimEnd;
     }
 
     IERC20Upgradeable public USDTInterface;
@@ -42,7 +33,7 @@ contract TokenPresale is Initializable, ReentrancyGuardUpgradeable, OwnableUpgra
 
     mapping(uint256 => bool) public paused;
     mapping(uint256 => Presale) public presale;
-    mapping(address => mapping(uint256 => Vesting)) public userVesting;
+    mapping(address => uint256) public userTokens;
 
     event PresaleCreated(
         uint256 indexed _id,
@@ -111,9 +102,6 @@ contract TokenPresale is Initializable, ReentrancyGuardUpgradeable, OwnableUpgra
      * @param _price Per token price multiplied by (10**18)
      * @param _tokensToSell No of tokens to sell without denomination. If 1 million tokens to be sold then - 1_000_000 has to be passed
      * @param _baseDecimals No of decimals for the token. (10**18), for 18 decimal token
-     * @param _vestingStartTime Start time for the vesting - UNIX timestamp
-     * @param _vestingCliff Cliff period for vesting in seconds
-     * @param _vestingPeriod Total vesting period(after vesting cliff) in seconds
      * @param _enableBuyWithEth Enable/Disable buy of tokens with ETH
      * @param _enableBuyWithUsdt Enable/Disable buy of tokens with USDT
      */
@@ -123,24 +111,12 @@ contract TokenPresale is Initializable, ReentrancyGuardUpgradeable, OwnableUpgra
         uint256 _price,
         uint256 _tokensToSell,
         uint256 _baseDecimals,
-        uint256 _vestingStartTime,
-        uint256 _vestingCliff,
-        uint256 _vestingPeriod,
         uint256 _enableBuyWithEth,
         uint256 _enableBuyWithUsdt
     ) external onlyOwner {
-        // require(
-        //     _startTime > block.timestamp && _endTime > _startTime,
-        //     "Invalid time"
-        // );
         require(_price > 0, "Zero price");
         require(_tokensToSell > 0, "Zero tokens to sell");
         require(_baseDecimals > 0, "Zero decimals for the token");
-        require(
-            _vestingStartTime >= _endTime,
-            "Vesting starts before Presale ends"
-        );
-
         presaleId++;
 
         presale[presaleId] = Presale(
@@ -151,9 +127,6 @@ contract TokenPresale is Initializable, ReentrancyGuardUpgradeable, OwnableUpgra
             _tokensToSell,
             _baseDecimals,
             _tokensToSell,
-            _vestingStartTime,
-            _vestingCliff,
-            _vestingPeriod,
             _enableBuyWithEth,
             _enableBuyWithUsdt
         );
@@ -162,88 +135,27 @@ contract TokenPresale is Initializable, ReentrancyGuardUpgradeable, OwnableUpgra
     }
 
     /**
-     * @dev get the presale info
+     * @dev change infos of the presale
      * @param _id Presale id
-     */
-    function getPresaleInfo (uint256 _id) external view returns (Presale memory) {
-        return presale[_id];
-    }
-
-    /**
-     * @dev get end time of the presale
-     * @param _id Presale id
-     */
-    function getEndTime(uint256 _id) external view returns (uint256) {
-        return presale[_id].endTime;
-    }
-
-    /**
-     * @dev To update the sale times
-     * @param _id Presale id to update
+     * @param _tokensToSell No of tokens to sell
+     * @param _price Per token price
      * @param _startTime New start time
      * @param _endTime New end time
      */
-    function changeSaleTimes(
-        uint256 _id,
-        uint256 _startTime,
-        uint256 _endTime
-    ) external checkPresaleId(_id) onlyOwner {
-        require(_startTime > 0 || _endTime > 0, "Invalid parameters");
-        if (_startTime > 0) {
-            require(
-                block.timestamp < presale[_id].startTime,
-                "Sale already started"
-            );
-            require(block.timestamp < _startTime, "Sale time in past");
-            uint256 prevValue = presale[_id].startTime;
-            presale[_id].startTime = _startTime;
-            emit PresaleUpdated(
-                bytes32("START"),
-                prevValue,
-                _startTime,
-                block.timestamp
-            );
-        }
-
-        if (_endTime > 0) {
-            require(
-                block.timestamp < presale[_id].endTime,
-                "Sale already ended"
-            );
-            require(_endTime > presale[_id].startTime, "Invalid endTime");
-            uint256 prevValue = presale[_id].endTime;
-            presale[_id].endTime = _endTime;
-            emit PresaleUpdated(
-                bytes32("END"),
-                prevValue,
-                _endTime,
-                block.timestamp
-            );
-        }
-    }
-
-    /**
-     * @dev To update the vesting start time
-     * @param _id Presale id to update
-     * @param _vestingStartTime New vesting start time
-     */
-    function changeVestingStartTime(uint256 _id, uint256 _vestingStartTime)
-        external
-        checkPresaleId(_id)
-        onlyOwner
-    {
-        require(
-            _vestingStartTime >= presale[_id].endTime,
-            "Vesting starts before Presale ends"
-        );
-        uint256 prevValue = presale[_id].vestingStartTime;
-        presale[_id].vestingStartTime = _vestingStartTime;
-        emit PresaleUpdated(
-            bytes32("VESTING_START_TIME"),
-            prevValue,
-            _vestingStartTime,
-            block.timestamp
-        );
+    function changeInfosRoundPresale(
+       uint256 _id,
+       uint256 _tokensToSell,
+       uint256 _price,
+       uint256 _startTime,
+       uint256 _endTime
+    ) external onlyOwner {
+        require(_price > 0, "Zero price");
+        require(_tokensToSell > 0, "Zero tokens to sell");
+    
+        presale[_id].tokensToSell = _tokensToSell;
+        presale[_id].price = _price;
+        presale[_id].startTime = _startTime;
+        presale[_id].endTime = _endTime;
     }
 
     /**
@@ -262,31 +174,6 @@ contract TokenPresale is Initializable, ReentrancyGuardUpgradeable, OwnableUpgra
         emit PresaleTokenAddressUpdated(
             prevValue,
             _newAddress,
-            block.timestamp
-        );
-    }
-
-    /**
-     * @dev To update the price
-     * @param _id Presale id to update
-     * @param _newPrice New sale price of the token
-     */
-    function changePrice(uint256 _id, uint256 _newPrice)
-        external
-        checkPresaleId(_id)
-        onlyOwner
-    {
-        require(_newPrice > 0, "Zero price");
-        require(
-            presale[_id].startTime > block.timestamp,
-            "Sale already started"
-        );
-        uint256 prevValue = presale[_id].price;
-        presale[_id].price = _newPrice;
-        emit PresaleUpdated(
-            bytes32("PRICE"),
-            prevValue,
-            _newPrice,
             block.timestamp
         );
     }
@@ -329,6 +216,22 @@ contract TokenPresale is Initializable, ReentrancyGuardUpgradeable, OwnableUpgra
             _enableToBuyWithUsdt,
             block.timestamp
         );
+    }
+
+    /**
+     * @dev get the presale info
+     * @param _id Presale id
+     */
+    function getPresaleInfo (uint256 _id) external view returns (Presale memory) {
+        return presale[_id];
+    }
+
+    /**
+     * @dev get end time of the presale
+     * @param _id Presale id
+     */
+    function getEndTime(uint256 _id) external view returns (uint256) {
+        return presale[_id].endTime;
     }
 
     /**
@@ -401,36 +304,24 @@ contract TokenPresale is Initializable, ReentrancyGuardUpgradeable, OwnableUpgra
 
         Presale memory _presale = presale[_id];
 
-        if (userVesting[_msgSender()][_id].totalAmount > 0) {
-            userVesting[_msgSender()][_id].totalAmount += (amount *
-                _presale.baseDecimals);
-        } else {
-            userVesting[_msgSender()][_id] = Vesting(
-                (amount * _presale.baseDecimals),
-                0,
-                _presale.vestingStartTime + _presale.vestingCliff,
-                _presale.vestingStartTime +
-                    _presale.vestingCliff +
-                    _presale.vestingPeriod
-            );
-        }
+        userTokens[msg.sender] += amount * _presale.baseDecimals;
 
         uint256 ourAllowance = USDTInterface.allowance(
-            _msgSender(),
+            msg.sender,
             address(this)
         );
         require(usdPrice <= ourAllowance, "Make sure to add enough allowance");
         (bool success, ) = address(USDTInterface).call(
             abi.encodeWithSignature(
                 "transferFrom(address,address,uint256)",
-                _msgSender(),
+                msg.sender,
                 owner(),
                 usdPrice
             )
         );
         require(success, "Token payment failed");
         emit TokensBought(
-            _msgSender(),
+            msg.sender,
             _id,
             address(USDTInterface),
             amount,
@@ -462,23 +353,12 @@ contract TokenPresale is Initializable, ReentrancyGuardUpgradeable, OwnableUpgra
         presale[_id].inSale -= amount;
         Presale memory _presale = presale[_id];
 
-        if (userVesting[_msgSender()][_id].totalAmount > 0) {
-            userVesting[_msgSender()][_id].totalAmount += (amount *
-                _presale.baseDecimals);
-        } else {
-            userVesting[_msgSender()][_id] = Vesting(
-                (amount * _presale.baseDecimals),
-                0,
-                _presale.vestingStartTime + _presale.vestingCliff,
-                _presale.vestingStartTime +
-                    _presale.vestingCliff +
-                    _presale.vestingPeriod
-            );
-        }
+        userTokens[msg.sender] += amount * _presale.baseDecimals;
+
         sendValue(payable(owner()), ethAmount);
-        if (excess > 0) sendValue(payable(_msgSender()), excess);
+        if (excess > 0) sendValue(payable(msg.sender), excess);
         emit TokensBought(
-            _msgSender(),
+            msg.sender,
             _id,
             address(0),
             amount,
@@ -518,6 +398,7 @@ contract TokenPresale is Initializable, ReentrancyGuardUpgradeable, OwnableUpgra
         usdPrice = usdPrice / (10**12);
     }
 
+
     function sendValue(address payable recipient, uint256 amount) internal {
         require(address(this).balance >= amount, "Low balance");
         (bool success, ) = recipient.call{value: amount}("");
@@ -535,32 +416,18 @@ contract TokenPresale is Initializable, ReentrancyGuardUpgradeable, OwnableUpgra
         checkPresaleId(_id)
         returns (uint256)
     {
-        Vesting memory _user = userVesting[user][_id];
-        require(_user.totalAmount > 0, "Nothing to claim");
-        uint256 amount = _user.totalAmount - _user.claimedAmount;
-        require(amount > 0, "Already claimed");
-
-        if (block.timestamp < _user.claimStart) return 0;
-        if (block.timestamp >= _user.claimEnd) return amount;
-
-        uint256 noOfMonthsPassed = (block.timestamp - _user.claimStart) / MONTH;
-
-        uint256 perMonthClaim = (_user.totalAmount * BASE_MULTIPLIER * MONTH) /
-            (_user.claimEnd - _user.claimStart);
-
-        uint256 amountToClaim = ((noOfMonthsPassed * perMonthClaim) /
-            BASE_MULTIPLIER) - _user.claimedAmount;
-
+        require(isClaimAllowed, "Claim not allowed");
+        uint256 amountToClaim = userTokens[user];
         return amountToClaim;
     }
 
     /**
-     * @dev To claim tokens after vesting cliff from a presale
-     * @param user User address
+     * @dev To claim tokens
      * @param _id Presale id
      */
-    function claim(address user, uint256 _id) public returns (bool) {
-        uint256 amount = claimableAmount(user, _id);
+    function claim(uint256 _id) external returns (bool) {
+        uint256 amount = claimableAmount(msg.sender, _id); 
+        require(isClaimAllowed, "Claim not allowed");
         require(amount > 0, "Zero claim amount");
         require(
             presale[_id].saleToken != address(0),
@@ -573,29 +440,13 @@ contract TokenPresale is Initializable, ReentrancyGuardUpgradeable, OwnableUpgra
                 ),
             "Not enough tokens in the contract"
         );
-        userVesting[user][_id].claimedAmount += amount;
+        userTokens[msg.sender] -= amount;
         bool status = IERC20Upgradeable(presale[_id].saleToken).transfer(
-            user,
+            msg.sender,
             amount
         );
         require(status, "Token transfer failed");
-        emit TokensClaimed(user, _id, amount, block.timestamp);
-        return true;
-    }
-
-    /**
-     * @dev To claim tokens after vesting cliff from a presale
-     * @param users Array of user addresses
-     * @param _id Presale id
-     */
-    function claimMultiple(address[] calldata users, uint256 _id)
-        external
-        returns (bool)
-    {
-        require(users.length > 0, "Zero users length");
-        for (uint256 i; i < users.length; i++) {
-            require(claim(users[i], _id), "Claim failed");
-        }
+        emit TokensClaimed(msg.sender, _id, amount, block.timestamp);
         return true;
     }
 }

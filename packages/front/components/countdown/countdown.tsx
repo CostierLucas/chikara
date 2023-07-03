@@ -1,6 +1,6 @@
 import Countdown from 'react-countdown';
 import { useContractRead } from 'wagmi';
-import contractAbi from '../../../contracts/artifacts/contracts/ChikaraPresale.sol/TokenPresale.json';
+import contractAbi from '../../abi/TokenPresale.json';
 import { chikaraAddress, presaleId } from 'packages/front/global';
 
 const Completionist = () => <span>Next step soon!</span>;

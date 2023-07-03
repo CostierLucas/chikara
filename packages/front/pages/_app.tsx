@@ -11,7 +11,7 @@ import { publicProvider } from 'wagmi/providers/public';
 import { useEffect, useState } from 'react';
 
 const { chains, publicClient } = configureChains(
-  [hardhat],
+  [hardhat, goerli],
   [
     alchemyProvider({ apiKey: 'Gfs_EBL4dk84SzNvVXCCu0TvrntC-fwG' }),
     publicProvider(),
@@ -19,7 +19,7 @@ const { chains, publicClient } = configureChains(
 );
 
 const { connectors } = getDefaultWallets({
-  appName: 'My RainbowKit App',
+  appName: 'Chikara',
   projectId: '5e65385329156b9a2023c880beff680e',
   chains,
 });

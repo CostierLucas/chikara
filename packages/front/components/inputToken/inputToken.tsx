@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { usePublicClient } from 'wagmi';
-import contractAbi from '../../../contracts/artifacts/contracts/ChikaraPresale.sol/TokenPresale.json';
+import contractAbi from '../../abi/TokenPresale.json';
 import { chikaraAddress, presaleId, price } from 'packages/front/global';
 import { formatEther } from 'viem';
 import { ButtonTx } from '../buttonTx/buttonTx';
