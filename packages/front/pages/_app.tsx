@@ -13,7 +13,7 @@ import { useEffect, useState } from 'react';
 const { chains, publicClient } = configureChains(
   [hardhat, goerli],
   [
-    alchemyProvider({ apiKey: 'Gfs_EBL4dk84SzNvVXCCu0TvrntC-fwG' }),
+    alchemyProvider({ apiKey: process.env.NEXT_PUBLIC_ALCHEMY_API_KEY }),
     publicProvider(),
   ]
 );

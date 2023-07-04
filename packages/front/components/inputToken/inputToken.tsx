@@ -48,22 +48,37 @@ export const InputToken = () => {
       <div className="text-center mb-5">
         <select
           id="crypto"
-          className="bg-primary rounded text-white py-1 px-1 w-1/3"
+          className="bg-primary rounded text-white py-1 px-1 w-2/4"
           onChange={(e) => setCrypto(e.target.value)}
         >
           <option value="eth">ETH</option>
           <option value="usdt">USDT</option>
         </select>
       </div>
-      <div className="flex gap-5 justify-between">
+      <div className="text-center">
+        <div className="mb-5">
+          <label className="text-white text-xs">
+            NUMBER OF TOKENS YOU WANT TO BUY :
+          </label>
+          <div>
+            <input
+              defaultValue={amountCha}
+              onChange={(e) => tokenHelper(crypto, BigInt(e.target.value))}
+              type="number"
+              placeholder="0"
+              className="bg-white rounded text-black py-1 px-1 w-2/4"
+            />
+          </div>
+        </div>
         <div>
-          <label className="text-white text-xs">YOU PAY</label>
+          <label className="text-white text-xs">AMOUNT TO PAY :</label>
           <div>
             <input
               type="number"
               placeholder="0"
-              className="bg-white rounded text-black py-1 px-1"
+              className="bg-gray-200 rounded text-black py-1 px-1 cursor-not-allowed w-2/4"
               value={amount}
+              disabled
               onChange={(e) => {
                 setAmount(Number(e.target.value));
                 convertTokenToCha(crypto, BigInt(e.target.value));
@@ -71,20 +86,8 @@ export const InputToken = () => {
             />
           </div>
         </div>
-        <div>
-          <label className="text-white text-xs">$CHA YOU RECEIVE</label>
-          <div>
-            <input
-              defaultValue={amountCha}
-              onChange={(e) => tokenHelper(crypto, BigInt(e.target.value))}
-              type="number"
-              placeholder="0"
-              className="bg-white rounded text-black py-1 px-1"
-            />
-          </div>
-        </div>
       </div>
-      <div className="mb-10 text-center">
+      <div className="text-center">
         <ButtonTx amount={noToken} token={crypto} />
       </div>
     </div>

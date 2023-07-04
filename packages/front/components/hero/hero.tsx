@@ -7,9 +7,9 @@ export interface HeroProps {}
 export function Hero(props: HeroProps) {
   return (
     <section id="home" className="relative z-10 pt-48 pb-28">
-      <div className="container flex space-between items-center gap-5">
+      <div className="container">
         <div className="-mx-4 flex flex-wrap">
-          <div className="w-full px-4">
+          <div className="w-full px-4 lg:w-1/2">
             <div className="mx-auto max-w-[720px] text-center">
               <div className="flex items-center gap-5 justify-center">
                 <h1 className="mb-4 !text-9xl font-bold font-pixel text-white leading-tight text-black dark:text-white md:text-[45px]">
@@ -44,9 +44,8 @@ export function Hero(props: HeroProps) {
               </div>
             </div>
           </div>
-          d p
+          <Presale />
         </div>
-        <Presale />
       </div>
 
       <div
