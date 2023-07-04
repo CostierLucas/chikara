@@ -1,4 +1,4 @@
-export const chikaraAddress = '0x4ea0Be853219be8C9cE27200Bdeee36881612FF2';
+export const chikaraAddress = '0x4D2B7DE6c400C53F25d1a4471878D5885F2Fad7c';
 export const presaleId = 1;
 // eslint-disable-next-line @typescript-eslint/no-loss-of-precision
 export const price = 0.000105;
