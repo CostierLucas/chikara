@@ -24,9 +24,6 @@ export function Footer(props: FooterProps) {
           >
             <BsTelegram color="#FFF" size={26} />
           </a>
-          <a href="/">
-            <BsDiscord color="#FFF" size={30} />
-          </a>
         </div>
         <div
           className="wow fadeInUp border-t border-[#3f3f3f] py-7 text-center dark:border-[#3f3f3f]"
