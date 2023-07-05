@@ -10,10 +10,18 @@ export function Footer(props: FooterProps) {
     <footer className="relative z-10 pt-[120px]">
       <div className="container w-full">
         <div className="flex items-center justify-center space-x-3 mb-16">
-          <a href="/">
+          <a
+            href="https://twitter.com/CHIKARA_P2E?t=GufHF2bs6-jdPgvxWygfzg&s=09"
+            target="_blank"
+            rel="noreferrer"
+          >
             <AiFillTwitterCircle color="#FFF" size={30} />
           </a>
-          <a href="/">
+          <a
+            href="https://t.me/+ShysjgLvjZA1MmE8"
+            target="_blank"
+            rel="noreferrer"
+          >
             <BsTelegram color="#FFF" size={26} />
           </a>
           <a href="/">

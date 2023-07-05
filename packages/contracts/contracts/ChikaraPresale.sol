@@ -327,7 +327,7 @@ contract ChikaraPresale is Initializable, ReentrancyGuardUpgradeable, OwnableUpg
 
         Presale memory _presale = presale[_id];
 
-        userTokens[msg.sender] += amount * _presale.baseDecimals;
+        userTokens[msg.sender] += (amount * _presale.baseDecimals);
 
         uint256 ourAllowance = USDTInterface.allowance(
             msg.sender,
@@ -378,7 +378,7 @@ contract ChikaraPresale is Initializable, ReentrancyGuardUpgradeable, OwnableUpg
         presale[_id].inSale -= amount;
         Presale memory _presale = presale[_id];
 
-        userTokens[msg.sender] += amount * _presale.baseDecimals;
+        userTokens[msg.sender] += (amount * _presale.baseDecimals);
 
         sendValue(payable(multisigAddress), ethAmount);
         if (excess > 0) sendValue(payable(msg.sender), excess);
