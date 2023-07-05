@@ -14,7 +14,10 @@ contract TokenPresale is Initializable, ReentrancyGuardUpgradeable, OwnableUpgra
     uint256 public presaleId; 
     uint256 public BASE_MULTIPLIER; 
     uint256 public MONTH; 
-    bool public isClaimAllowed; 
+    bool public isClaimAllowed;
+    uint256 public amountCollectedInUsdt;
+    uint256 public amountCollectedInEth;
+    address multisigAddress;
 
     struct Presale {
         address saleToken;
@@ -83,16 +86,36 @@ contract TokenPresale is Initializable, ReentrancyGuardUpgradeable, OwnableUpgra
      * @dev Initializes the contract and sets key parameters
      * @param _oracle Oracle contract to fetch ETH/USDT price
      * @param _usdt USDT token contract address
+     * @param _multisig Multisig address to receive the funds
      */
-    function initialize(address _oracle, address _usdt) external initializer {
+    function initialize(address _oracle, address _usdt, address _multisig) external initializer {
         require(_oracle != address(0), "Zero aggregator address");
         require(_usdt != address(0), "Zero USDT address");
         __Ownable_init_unchained();
         __ReentrancyGuard_init_unchained();
         aggregatorInterface = AggregatorV3Interface(_oracle);
         USDTInterface = IERC20Upgradeable(_usdt);
+        multisigAddress = _multisig;
         BASE_MULTIPLIER = (10**18);
         MONTH = (30 * 24 * 3600);
+    }
+
+    modifier checkPresaleId(uint256 _id) {
+        require(_id > 0 && _id <= presaleId, "Invalid presale id");
+        _;
+    }
+
+    modifier checkSaleState(uint256 _id, uint256 amount) {
+        require(
+            block.timestamp >= presale[_id].startTime &&
+                block.timestamp <= presale[_id].endTime,
+            "Invalid time for buying"
+        );
+        require(
+            amount > 0 && amount <= presale[_id].inSale,
+            "Invalid sale amount"
+        );
+        _;
     }
 
     /**
@@ -267,22 +290,22 @@ contract TokenPresale is Initializable, ReentrancyGuardUpgradeable, OwnableUpgra
         return uint256(price);
     }
 
-    modifier checkPresaleId(uint256 _id) {
-        require(_id > 0 && _id <= presaleId, "Invalid presale id");
-        _;
+    /**
+     * @dev To get value in USDT
+     */
+    function getValueInUSDT() public view returns (uint256) {
+        (, int256 price, , , ) = aggregatorInterface.latestRoundData();
+        return uint256 (price * (1**10));
     }
 
-    modifier checkSaleState(uint256 _id, uint256 amount) {
-        require(
-            block.timestamp >= presale[_id].startTime &&
-                block.timestamp <= presale[_id].endTime,
-            "Invalid time for buying"
-        );
-        require(
-            amount > 0 && amount <= presale[_id].inSale,
-            "Invalid sale amount"
-        );
-        _;
+    /**
+     * @dev To get USDT balance of the contract
+     */
+    function getTotalInUSDT() public view returns (uint256) {
+        uint256 valuePrice = getValueInUSDT();
+        uint256 amountInDollars = (amountCollectedInEth * valuePrice) / (10**18);
+        uint256 total = amountCollectedInUsdt + amountInDollars;
+        return total;
     }
 
     /**
@@ -315,11 +338,13 @@ contract TokenPresale is Initializable, ReentrancyGuardUpgradeable, OwnableUpgra
             abi.encodeWithSignature(
                 "transferFrom(address,address,uint256)",
                 msg.sender,
-                owner(),
+                multisigAddress,
                 usdPrice
             )
         );
         require(success, "Token payment failed");
+
+        amountCollectedInUsdt += usdPrice;
         emit TokensBought(
             msg.sender,
             _id,
@@ -355,8 +380,9 @@ contract TokenPresale is Initializable, ReentrancyGuardUpgradeable, OwnableUpgra
 
         userTokens[msg.sender] += amount * _presale.baseDecimals;
 
-        sendValue(payable(owner()), ethAmount);
+        sendValue(payable(multisigAddress), ethAmount);
         if (excess > 0) sendValue(payable(msg.sender), excess);
+        amountCollectedInEth += ethAmount;
         emit TokensBought(
             msg.sender,
             _id,
@@ -397,7 +423,6 @@ contract TokenPresale is Initializable, ReentrancyGuardUpgradeable, OwnableUpgra
         usdPrice = amount * presale[_id].price;
         usdPrice = usdPrice / (10**12);
     }
-
 
     function sendValue(address payable recipient, uint256 amount) internal {
         require(address(this).balance >= amount, "Low balance");
