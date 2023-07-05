@@ -52,7 +52,7 @@ export const InputToken = () => {
           onChange={(e) => setCrypto(e.target.value)}
         >
           <option value="eth">ETH</option>
-          <option value="usdt">USDT</option>
+          {/* <option value="usdt">USDT</option> */}
         </select>
       </div>
       <div className="text-center">
