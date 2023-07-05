@@ -1,5 +1,6 @@
 import { CountdownPresale } from '../countdown/countdown';
 import { InputToken } from '../inputToken/inputToken';
+import ProgressBar from '../progressBar/progressBar';
 
 /* eslint-disable-next-line */
 export interface PresaleProps {}
@@ -25,19 +26,7 @@ export function Presale(props: PresaleProps) {
             <CountdownPresale />
           </div>
         </div>
-        <div className="mb-4">
-          <div className="relative z-20">
-            <div className="relative h-4 w-full rounded-full bg-black">
-              <div className="absolute left-0 bottom-0 h-full w-[75%] rounded-full bg-primary"></div>
-
-              <div className="absolute bottom-0 left-0 flex w-full justify-around">
-                <div className="group relative flex w-1/3 justify-center"></div>
-                <div className="group relative flex w-1/3 justify-center"></div>
-                <div className="group relative flex w-1/3 justify-center"></div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <ProgressBar />
         <div>
           <InputToken />
         </div>
