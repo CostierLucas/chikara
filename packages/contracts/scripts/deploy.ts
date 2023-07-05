@@ -10,11 +10,11 @@ const multiSig = '0x7D3de1950037B237965afFA3883beA329d109E97';
 const multiSigTest = '0x70997970C51812dc3A010C7d01b50e0d17dc79C8';
 
 async function main() {
-  const chikaraPresale = await ethers.getContractFactory('TokenPresale');
+  const chikaraPresale = await ethers.getContractFactory('ChikaraPresale');
   const instance = await upgrades.deployProxy(chikaraPresale, [
     mainnetFeed,
     mainnetUsdt,
-    multiSigTest,
+    multiSig,
   ]);
   const blockTimeStamp = (await ethers.provider.getBlock('latest')).timestamp;
   const endDateTime = blockTimeStamp + 60 * 60 * 24 * 6;

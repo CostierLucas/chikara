@@ -10,7 +10,7 @@ import "@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.
 import "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
 
 
-contract TokenPresale is Initializable, ReentrancyGuardUpgradeable, OwnableUpgradeable {
+contract ChikaraPresale is Initializable, ReentrancyGuardUpgradeable, OwnableUpgradeable {
     uint256 public presaleId; 
     uint256 public BASE_MULTIPLIER; 
     uint256 public MONTH; 

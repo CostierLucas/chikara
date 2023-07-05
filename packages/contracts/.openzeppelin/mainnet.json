@@ -1,0 +1,284 @@
+{
+  "manifestVersion": "3.2",
+  "admin": {
+    "address": "0x3353838A66B1182DA0525f2eEdaFbe7455B444F8",
+    "txHash": "0x982ceb7c394a8b9910d4b3dd683ef2a73549f6ce2ed6a3d291f80cd3098b24a0"
+  },
+  "proxies": [
+    {
+      "address": "0xB1ecEb8B64675FF887e0640E433E3ec717F8fe36",
+      "txHash": "0x9d1f7e238b3d7ad426371ed6114b064d4a029376c2438399e609c5c887ea7fc4",
+      "kind": "transparent"
+    }
+  ],
+  "impls": {
+    "a5a962d9bbd107a7ff95c7a283690ad1a7b20fb848bdc930694befd2a49d271c": {
+      "address": "0xEd90e15b4AD25aa6A634040b96dED6AF52890231",
+      "txHash": "0x7657d7335b0d0c91efc55482b36f8dfa2e2dadfbbcc384a67fbd9111af21da2e",
+      "layout": {
+        "solcVersion": "0.8.19",
+        "storage": [
+          {
+            "label": "_initialized",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint8",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:63",
+            "retypedFrom": "bool"
+          },
+          {
+            "label": "_initializing",
+            "offset": 1,
+            "slot": "0",
+            "type": "t_bool",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:68"
+          },
+          {
+            "label": "_status",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_uint256",
+            "contract": "ReentrancyGuardUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol:38"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_array(t_uint256)49_storage",
+            "contract": "ReentrancyGuardUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol:88"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "51",
+            "type": "t_array(t_uint256)50_storage",
+            "contract": "ContextUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol:36"
+          },
+          {
+            "label": "_owner",
+            "offset": 0,
+            "slot": "101",
+            "type": "t_address",
+            "contract": "OwnableUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:22"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "102",
+            "type": "t_array(t_uint256)49_storage",
+            "contract": "OwnableUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:94"
+          },
+          {
+            "label": "presaleId",
+            "offset": 0,
+            "slot": "151",
+            "type": "t_uint256",
+            "contract": "ChikaraPresale",
+            "src": "contracts/ChikaraPresale.sol:14"
+          },
+          {
+            "label": "BASE_MULTIPLIER",
+            "offset": 0,
+            "slot": "152",
+            "type": "t_uint256",
+            "contract": "ChikaraPresale",
+            "src": "contracts/ChikaraPresale.sol:15"
+          },
+          {
+            "label": "MONTH",
+            "offset": 0,
+            "slot": "153",
+            "type": "t_uint256",
+            "contract": "ChikaraPresale",
+            "src": "contracts/ChikaraPresale.sol:16"
+          },
+          {
+            "label": "isClaimAllowed",
+            "offset": 0,
+            "slot": "154",
+            "type": "t_bool",
+            "contract": "ChikaraPresale",
+            "src": "contracts/ChikaraPresale.sol:17"
+          },
+          {
+            "label": "amountCollectedInUsdt",
+            "offset": 0,
+            "slot": "155",
+            "type": "t_uint256",
+            "contract": "ChikaraPresale",
+            "src": "contracts/ChikaraPresale.sol:18"
+          },
+          {
+            "label": "amountCollectedInEth",
+            "offset": 0,
+            "slot": "156",
+            "type": "t_uint256",
+            "contract": "ChikaraPresale",
+            "src": "contracts/ChikaraPresale.sol:19"
+          },
+          {
+            "label": "multisigAddress",
+            "offset": 0,
+            "slot": "157",
+            "type": "t_address",
+            "contract": "ChikaraPresale",
+            "src": "contracts/ChikaraPresale.sol:20"
+          },
+          {
+            "label": "USDTInterface",
+            "offset": 0,
+            "slot": "158",
+            "type": "t_contract(IERC20Upgradeable)508",
+            "contract": "ChikaraPresale",
+            "src": "contracts/ChikaraPresale.sol:34"
+          },
+          {
+            "label": "aggregatorInterface",
+            "offset": 0,
+            "slot": "159",
+            "type": "t_contract(AggregatorV3Interface)45",
+            "contract": "ChikaraPresale",
+            "src": "contracts/ChikaraPresale.sol:35"
+          },
+          {
+            "label": "paused",
+            "offset": 0,
+            "slot": "160",
+            "type": "t_mapping(t_uint256,t_bool)",
+            "contract": "ChikaraPresale",
+            "src": "contracts/ChikaraPresale.sol:37"
+          },
+          {
+            "label": "presale",
+            "offset": 0,
+            "slot": "161",
+            "type": "t_mapping(t_uint256,t_struct(Presale)928_storage)",
+            "contract": "ChikaraPresale",
+            "src": "contracts/ChikaraPresale.sol:38"
+          },
+          {
+            "label": "userTokens",
+            "offset": 0,
+            "slot": "162",
+            "type": "t_mapping(t_address,t_uint256)",
+            "contract": "ChikaraPresale",
+            "src": "contracts/ChikaraPresale.sol:39"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_array(t_uint256)49_storage": {
+            "label": "uint256[49]",
+            "numberOfBytes": "1568"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]",
+            "numberOfBytes": "1600"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_contract(AggregatorV3Interface)45": {
+            "label": "contract AggregatorV3Interface",
+            "numberOfBytes": "20"
+          },
+          "t_contract(IERC20Upgradeable)508": {
+            "label": "contract IERC20Upgradeable",
+            "numberOfBytes": "20"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint256,t_bool)": {
+            "label": "mapping(uint256 => bool)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint256,t_struct(Presale)928_storage)": {
+            "label": "mapping(uint256 => struct ChikaraPresale.Presale)",
+            "numberOfBytes": "32"
+          },
+          "t_struct(Presale)928_storage": {
+            "label": "struct ChikaraPresale.Presale",
+            "members": [
+              {
+                "label": "saleToken",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "startTime",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "endTime",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "2"
+              },
+              {
+                "label": "price",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "3"
+              },
+              {
+                "label": "tokensToSell",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "4"
+              },
+              {
+                "label": "baseDecimals",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "5"
+              },
+              {
+                "label": "inSale",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "6"
+              },
+              {
+                "label": "enableBuyWithEth",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "7"
+              },
+              {
+                "label": "enableBuyWithUsdt",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "8"
+              }
+            ],
+            "numberOfBytes": "288"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          },
+          "t_uint8": {
+            "label": "uint8",
+            "numberOfBytes": "1"
+          }
+        }
+      }
+    }
+  }
+}

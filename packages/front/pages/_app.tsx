@@ -4,14 +4,14 @@ import '@rainbow-me/rainbowkit/styles.css';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 import { getDefaultWallets, RainbowKitProvider } from '@rainbow-me/rainbowkit';
-import { configureChains, createConfig, WagmiConfig } from 'wagmi';
+import { configureChains, createConfig, mainnet, WagmiConfig } from 'wagmi';
 import { goerli, hardhat } from 'wagmi/chains';
 import { alchemyProvider } from 'wagmi/providers/alchemy';
 import { publicProvider } from 'wagmi/providers/public';
 import { useEffect, useState } from 'react';
 
 const { chains, publicClient } = configureChains(
-  [hardhat, goerli],
+  [mainnet],
   [
     alchemyProvider({ apiKey: process.env.NEXT_PUBLIC_ALCHEMY_API_KEY }),
     publicProvider(),
@@ -47,6 +47,15 @@ function CustomApp({ Component, pageProps }: AppProps) {
         <>
           <Head>
             <title>Chikara</title>
+            <link rel="icon" type="image/png" href="logo.png" />
+            <meta
+              name="viewport"
+              content="width=device-width, initial-scale=1"
+            />
+            <meta
+              name="description"
+              content="Chikara is a cryptocurrency project that offers play-to-earn games."
+            />
           </Head>
 
           <main className="app">

@@ -1,7 +1,6 @@
 import { chikaraAddress, totalAmount } from 'packages/front/global';
 import { useContractRead } from 'wagmi';
 import contractAbi from '../../abi/TokenPresale.json';
-import { useEffect } from 'react';
 
 export const ProgressBar = () => {
   const { data } = useContractRead({
