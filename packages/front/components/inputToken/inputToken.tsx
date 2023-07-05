@@ -10,7 +10,7 @@ export const InputToken = () => {
   const [crypto, setCrypto] = useState<string>('eth');
   const [amount, setAmount] = useState<number | undefined>(undefined);
   const [noToken, setNoToken] = useState<bigint>(BigInt(0));
-  const [amountCha, setAmountCha] = useState<number>(0);
+  const [amountCha, setAmountCha] = useState<number>();
 
   const tokenHelper = async (token: string, noToken: bigint) => {
     const data = await publicClient.readContract({
