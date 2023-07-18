@@ -8,7 +8,7 @@ import { ButtonTx } from '../buttonTx/buttonTx';
 export const InputToken = () => {
   const publicClient = usePublicClient();
   const [crypto, setCrypto] = useState<string>('eth');
-  const [amount, setAmount] = useState<number | undefined>(undefined);
+  const [amount, setAmount] = useState<number | string>('');
   const [noToken, setNoToken] = useState<bigint>(BigInt(0));
   const [amountCha, setAmountCha] = useState<number>();
 
