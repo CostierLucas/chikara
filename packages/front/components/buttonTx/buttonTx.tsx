@@ -21,7 +21,7 @@ export const ButtonTx = ({ amount, token }: ButtonTxProps) => {
     args: [presaleId, amount === BigInt(0) ? BigInt(1) : amount],
   });
 
-  const { config } = usePrepareContractWrite({
+  const { config, error: prepareError } = usePrepareContractWrite({
     address: chikaraAddress,
     abi: contractAbi.abi,
     functionName: token === 'eth' ? 'buyWithEth' : 'buyWithUSDT',
@@ -58,7 +58,11 @@ export const ButtonTx = ({ amount, token }: ButtonTxProps) => {
 
         {isError && 'Error'}
 
-        {!isLoading && !isSuccess && !isError && 'Buy token'}
+        {prepareError &&
+          prepareError.message.includes('enough funds') &&
+          'Not enough funds'}
+
+        {!isLoading && !isSuccess && !isError && !prepareError && 'Buy token'}
       </button>
     </div>
   );
