@@ -3,7 +3,9 @@ import { useContractRead } from 'wagmi';
 import contractAbi from '../../abi/TokenPresale.json';
 import { chikaraAddress, presaleId } from 'packages/front/global';
 
-const Completionist = () => <span>Next step soon!</span>;
+const Completionist = () => (
+  <span className="text-white font-bold">Next step soon!</span>
+);
 
 export const CountdownPresale = () => {
   const { data } = useContractRead({

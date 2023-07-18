@@ -42,6 +42,9 @@ export const InputToken = () => {
     }
   };
 
+  const preventNegativeValues = (e) =>
+    ['e', 'E', '+', '-'].includes(e.key) && e.preventDefault();
+
   return (
     <div>
       <p className="text-center text-white mb-4">1 $CHA = {price} $</p>
@@ -64,8 +67,10 @@ export const InputToken = () => {
             <input
               defaultValue={amountCha}
               onChange={(e) => tokenHelper(crypto, BigInt(e.target.value))}
+              min="0"
               type="number"
               placeholder="0"
+              onKeyDown={(e) => preventNegativeValues(e)}
               className="bg-white rounded text-black py-1 px-1 w-2/4"
             />
           </div>
