@@ -58,9 +58,7 @@ export const ButtonTx = ({ amount, token }: ButtonTxProps) => {
 
         {isError && 'Error'}
 
-        {prepareError &&
-          prepareError.message.includes('enough funds') &&
-          'Not enough funds'}
+        {prepareError && prepareError.message}
 
         {!isLoading && !isSuccess && !isError && !prepareError && 'Buy token'}
       </button>

@@ -1,16 +1,23 @@
-import { useState } from 'react';
-import { usePublicClient } from 'wagmi';
+import { useEffect, useState } from 'react';
+import { erc20ABI, useAccount, usePublicClient } from 'wagmi';
 import contractAbi from '../../abi/TokenPresale.json';
-import { chikaraAddress, presaleId, price } from 'packages/front/global';
+import {
+  chikaraAddress,
+  presaleId,
+  price,
+  usdtAddress,
+} from 'packages/front/global';
 import { formatEther } from 'viem';
 import { ButtonTx } from '../buttonTx/buttonTx';
 
 export const InputToken = () => {
+  const { address } = useAccount();
   const publicClient = usePublicClient();
   const [crypto, setCrypto] = useState<string>('eth');
   const [amount, setAmount] = useState<number | string>('');
   const [noToken, setNoToken] = useState<bigint>(BigInt(0));
   const [amountCha, setAmountCha] = useState<number>();
+  const [allowanceUsdt, setAllowanceUsdt] = useState<bigint>(BigInt(0));
 
   const tokenHelper = async (token: string, noToken: bigint) => {
     const data = await publicClient.readContract({
@@ -45,6 +52,25 @@ export const InputToken = () => {
   const preventNegativeValues = (e) =>
     ['e', 'E', '+', '-'].includes(e.key) && e.preventDefault();
 
+  useEffect(() => {
+    if (crypto === 'usdt') {
+      const checkAllowance = async () => {
+        const data = await publicClient.readContract({
+          address: usdtAddress,
+          abi: erc20ABI,
+          functionName: 'allowance',
+          args: [address, chikaraAddress],
+        });
+
+        return data;
+      };
+
+      checkAllowance().then((data) => {
+        setAllowanceUsdt(BigInt(data.toString()));
+      });
+    }
+  }, [address, crypto, publicClient]);
+
   return (
     <div>
       <p className="text-center text-white mb-4">1 $CHA = {price} $</p>
@@ -55,7 +81,7 @@ export const InputToken = () => {
           onChange={(e) => setCrypto(e.target.value)}
         >
           <option value="eth">ETH</option>
-          {/* <option value="usdt">USDT</option> */}
+          <option value="usdt">USDT</option>
         </select>
       </div>
       <div className="text-center">
@@ -93,6 +119,7 @@ export const InputToken = () => {
         </div>
       </div>
       <div className="text-center">
+        {crypto === 'usdt' && allowanceUsdt < amountCha && 'error'}
         <ButtonTx amount={noToken} token={crypto} />
       </div>
     </div>
