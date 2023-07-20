@@ -58,7 +58,9 @@ export const ButtonTx = ({ amount, token }: ButtonTxProps) => {
 
         {isError && 'Error'}
 
-        {prepareError && prepareError.message}
+        {prepareError &&
+          prepareError.message.includes('insufficient') &&
+          "You don't have enough ETH"}
 
         {!isLoading && !isSuccess && !isError && !prepareError && 'Buy token'}
       </button>
